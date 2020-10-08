@@ -38,16 +38,16 @@ const originalFlavors = [
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: Copy the Array! 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 We have an array called originalFlavors with 31 flavors (see above).  In these tasks, we will be reading and writing data to this array.  
 With all of these changes going on, we don't want to lose track of the actual, original 31 flavors.  So we need to copy the original array!
-
 /*
 Use the copy function below to do the following:
-    1. An array as an argument
-    2. Return a copy of the received array  
+    1. Receive two arguments: one for your new array and one for your original array
+    2. Return the new array that holds an exact copy of the old array  
 */
 
-function copy(/*your code here*/){
-    /*your code here*/
-}    
+function copy(originalFlavors, sameFlavors){
+    sameFlavors = [...originalFlavors]
+   return sameFlavors
+}
 
 
 
@@ -55,85 +55,91 @@ function copy(/*your code here*/){
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Confirm that an array is exactly 31 flavors. Your function should accept:
-    1. an array
-    2. Check to see if the array given is 31 falvors
-    3. Your function should return a boolean TRUE if the length of the array is 31 and FALSE if the length of the array is NOT 31.
-  
-
+   1. an array
+   2. Check to see if the array given is 31 falvors
+   3. Your function should return a boolean TRUE if the length of the array is 31 and FALSE if the length of the array is NOT 31.
+ 
 For Example: is31Flavors(originalFlavors) will return true if your code is working properly
 */
 
 
-function is31Flavors(/*your code here*/){
-   /*your code here*/
+function is31Flavors(originalFlavors){
+  if (originalFlavors.length === 31) {
+      return true
+  } else {
+      return false
+  };
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Corporate has come to you with an idea for a new flavor: Rainbow Sherbert! They think this will be a game changer. You need to modify the array to include this flavor. 
-
 Use the addFlavor function below to do the following:
-    1. Receive an array
-    2. Receive a new flavor as a string
-    3. Add the passed flavor to the front of the array
-    4. Return the resulting array
-
-    For example: addFlavor("Rainbow Sherbert", originalFlavors) should return the array ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"]
+   1. Receive an array
+   2. Receive a new flavor as a string
+   3. Add the passed flavor to the front of the array
+   4. Return the resulting array
+   For example: addFlavor("Rainbow Sherbert", originalFlavors) should return the array ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"]
 */
 
 
-function addFlavor(/*your code here*/){
-   /*your code here*/
+function addFlavor(originalFlavors){
+  /*your code here*/
+  originalFlavors.unshift("Rainbow Sherbert")
+  return originalFlavors
 }
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Houston, we have a problem! There are now 32 flavors in the originalFlavors array! Your task is to remove an item from the end of the array. 
-
 Use the removeLastFlavor function below to do the following:
-    1. Receive receive an array
-    2. Remove the last item from the array
-    3. Return the resulting array
-
-    For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
+   1. Receive receive an array
+   2. Remove the last item from the array
+   3. Return the resulting array
+   For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
 
-function removeLastFlavor(/*your code here*/){
-   /*your code here*/
+function removeLastFlavor(originalFlavors){
+  /*your code here*/
+  originalFlavors.pop();
+  return originalFlavors
 }
 
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Write a function that returns a flavor at a given index in the array.
-
 Use the getFlavorByIndex function below to do the following:
-    1. Recieve an array and an index
-    2. Return the flavor located at the received index position
-
-    For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
+   1. Recieve an array and an index
+   2. Return the flavor located at the received index position
+   For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
 
-function getFlavorByIndex(/*your code here*/){
-    /*your code here*/
+function getFlavorByIndex(originalFlavors){
+   /*your code here*/
+   const secondFlavor = originalFlavors[2]
+   return secondFlavor
 }
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 As corporate wants to add more and more flavors to their lineup, they've realized that they need to remove flavors based on flavor name, 
 as opposed to just arbitrarily removing the first or last flavor. Your task is to get an index by flavor name, and remove that single flavor from the array.  
-
 Use the removeFlavorByName function below to do the following:
-    1. Receive an array and a string (the flavour to be removed)
-    2. Remove that flavor from the array
-    5. Return the resulting array that now contains one less flavor
-
-    For example: running removeFlavorByName(originalFlavors, "Rocky Road") would return an array with the a length of 30 because Rocky Road would have been removed. 
-
-    HINT: You can use .splice() for this
+   1. Receive an array and a string (the flavour to be removed)
+   2. Remove that flavor from the array
+   5. Return the resulting array that now contains one less flavor
+   For example: running removeFlavorByName(originalFlavors, "Rocky Road") would return an array with the a length of 30 because Rocky Road would have been removed. 
+   HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-    /*your code here*/
+function removeFlavorByName(originalFlavors, flavor){
+   /*your code here*/
+   for(let i=0; i < originalFlavors.length; i++){
+       if(flavor === originalFlavors[i]){
+           originalFlavors.splice(i,1);
+       }
+   }
+   return originalFlavors;
 }
 
 
@@ -143,23 +149,27 @@ July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional 
 Your task is to write a function that checks every item in the array for a string and returns a new array called filteredArray with only the values 
 that contain the received string. This would allow you to be able to filter for "Vanilla", "Sherbet", "Lemon" etc. when different holidays roll around 
 by passing in those specific strings.
-
 Use the filterByWord function below to do the following:
-    1. Receive an array and a string ("chocolate")
-    2. Check to see if any of the flavors in the array contain that string
-    4. If they do, add them to a new array
-    5. Return the new array that contains the filtered flavors
-
-    For example: filterByWord(originalFlavors, "Chocolate") should return ["Chocolate", "Chocolate Almond", "Chocolate Chip", "Chocolate Fudge", "Chocolate Mint", "Chocolate Ribbon"]
-
-    HINT - you can use the .includes method to help you solve this
-
-    DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
+   1. Receive an array and a string ("chocolate")
+   2. Check to see if any of the flavors in the array contain that string
+   4. If they do, add them to a new array
+   5. Return the new array that contains the filtered flavors
+   For example: filterByWord(originalFlavors, "Chocolate") should return ["Chocolate", "Chocolate Almond", "Chocolate Chip", "Chocolate Fudge", "Chocolate Mint", "Chocolate Ribbon"]
+   HINT - you can use the .includes method to help you solve this
+   DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/){
-    /*your code here*/
+function filterByWord(originalFlavors, flavor){
+  let newArray = [];
+  for (let i = 0; i < originalFlavors.length; i++) {
+      if (originalFlavors[i].includes(flavor)) {
+          newArray.push(originalFlavors[i]);
+      }
+   }
+   return newArray;
+  
 }
+
 
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
